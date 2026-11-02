@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>Мои смены</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="apple-touch-icon" href="https://cdn-icons-png.flaticon.com/512/2693/2693507.png">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+</head>
+<body>
+    <header>
+        <h1>📅 Мои смены</h1>
+    </header>
+
+    <main>
+        <!-- Форма добавления -->
+        <div class="add-form">
+            <input type="date" id="shift-date" required>
+            
+            <!-- Выбор типа смены -->
+            <select id="shift-room" required>
+                <option value="" disabled selected>Выберите тип...</option>
+                <option value="Колоно 1">Колоно 1</option>
+                <option value="Колоно 2">Колоно 2</option>
+                <option value="ЭГДС">ЭГДС</option>
+                <option value="Отпуск">Отпуск</option>
+                <option value="Выходной">Выходной</option>
+                <option value="Курсы">Курсы</option>
+            </select>
+            
+            <input type="text" id="shift-note" placeholder="Заметка (необязательно)">
+            <button onclick="addShift()">Добавить</button>
+        </div>
+
+        <!-- Список смен -->
+        <div id="shifts-list"></div>
+    </main>
+
+    <!-- Модальное окно для редактирования -->
+    <div id="edit-modal" class="modal hidden">
+        <div class="modal-content">
+            <h2>Редактировать</h2>
+            <input type="date" id="edit-date">
+            
+            <select id="edit-room">
+                <option value="Колоно 1">Колоно 1</option>
+                <option value="Колоно 2">Колоно 2</option>
+                <option value="ЭГДС">ЭГДС</option>
+                <option value="Отпуск">Отпуск</option>
+                <option value="Выходной">Выходной</option>
+                <option value="Курсы">Курсы</option>
+            </select>
+            
+            <input type="text" id="edit-note" placeholder="Заметка">
+            <div class="modal-buttons">
+                <button class="cancel-btn" onclick="closeModal()">Отмена</button>
+                <button class="save-btn" onclick="saveEdit()">Сохранить</button>
+            </div>
+        </div>
+    </div>
+
+    <script src="app.js"></script>
+</body>
+</html>
